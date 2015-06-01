@@ -1,17 +1,66 @@
-/*
- * File:   main.cpp
- * Author: servulo/paulo/ELIVELTON
- *
- * Created on 30 de Maio de 2015, 22:05
- */
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#include<ctype.h>
+#include<string.h>
 
-#include <cstdlib>
+typedef struct {
+    char Mat[20000];
+    char Nome[35];
+} calculo;
 
-using namespace std;
+int main() {
+
+    FILE *ARQ1, *ARQ2, *ARQ3;
+    calculo f1;
+    calculo f2;
+    calculo f3;
+    int Igual, Igualfinal;
+
+    if ((ARQ1 = fopen("teste2.mid", "rb")) == NULL)//abri arquivo 1
+    {
+        printf("\n\n Nao foi possivel abrir o arquivo.\n");
+        exit(1);
+    }
+
+    if ((ARQ2 = fopen("teste1.mid", "rb")) == NULL)///abri arquivo 2
+    {
+        printf("\n\n Nao foi possivel abrir o arquivo.\n");
+        exit(1);
+    }
+
+    if ((ARQ3 = fopen("ave_maria_gounod.mid", "rb")) == NULL)///abri arquivo 3
+    {
+        printf("\n\n Nao foi possivel abrir o arquivo.\n");
+        exit(1);
+    }
+
+    fread(&f1, sizeof (calculo), 1, ARQ1); //le o arquivo 1
+    fread(&f2, sizeof (calculo), 1, ARQ2); //le o arquivo 2
+    fread(&f3, sizeof (calculo), 1, ARQ3); //le o arquivo 3
 
 
-int main(int argc, char** argv) {
+for(int i = 0; i <=1000; i++){
+    printf("%d", f1.Mat[i]);
 
+}
+printf("\n\n\n");
+
+for(int i = 0; i <=100; i++){
+    printf("%d", f2.Mat[i]);
+
+}
+
+printf("\n\n\n");
+for(int i = 0; i <=100; i++){
+    printf("%d", f3.Mat[i]);
+
+}
+
+    fclose(ARQ1);
+    fclose(ARQ2);
+    fclose(ARQ3);
+    getch();
     return 0;
 }
 
