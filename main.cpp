@@ -5,9 +5,14 @@
 #include<string.h>
 
 typedef struct {
-    char Mat[20000];
-    char Nome[35];
+    char Mat[];
+    char Nome[];
 } calculo;
+
+typedef struct{
+char row[];
+char posi[];
+}mid;
 
 int main() {
 
@@ -40,7 +45,7 @@ int main() {
     fread(&f3, sizeof (calculo), 1, ARQ3); //le o arquivo 3
 
 
-for(int i = 0; i <=1000; i++){
+for(int i = 0; i <=100; i++){
     printf("%d", f1.Mat[i]);
 
 }
